@@ -31,7 +31,7 @@ stages:
         containerRegistry: '$(SERVICE_CONN_DOCKER_REGISTRY)'
         repository: '$(dockerRepository)'
         tags: |
-          b$(Build.BuildId)
+          build-latest
 
 # - stage: Deploy
 #   displayName: Deploy App Service
