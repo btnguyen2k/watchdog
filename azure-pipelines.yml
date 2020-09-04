@@ -12,7 +12,7 @@ trigger:
 variables:
 - name: dockerRepository
   value: watchdog
-#- group: 'Release'
+- group: 'Release'
 
 stages:
 - stage: Build
@@ -22,8 +22,6 @@ stages:
   jobs:
   - job: Build
     displayName: Build and Publish Docker image
-    variables:
-    - group: 'Release'
     steps:
     - task: Docker@2
       displayName: Build and Publish image
