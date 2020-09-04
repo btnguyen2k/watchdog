@@ -10,6 +10,8 @@ trigger:
     - docs/*
 
 variables:
+- name: dockerRepository
+  value: watchdog
 - group: 'Release'
 
 stages:
@@ -33,10 +35,10 @@ stages:
       inputs:
         command: buildAndPush
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-        containerRegistry: '$(dockerRegistry)'
+        containerRegistry: '$(SERVICE_CONN_DOCKER_REGISTRY)'
         repository: '$(dockerRepository)'
         tags: |
-          $(Build.BuildId)
+          b$(Build.BuildId)
 
 # - stage: Deploy
 #   displayName: Deploy App Service
